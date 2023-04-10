@@ -7,15 +7,13 @@ public class LocalMaximum {
         int[] ary1 = {1, 61, 89, 75, 16, 33, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
         int[] ary2 = {1, 61, 16, 75, 89, 133, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
         int[] ary3 = {99,1, 61, 89, 75, 16, 33, 89, 59, 28, 3, 3, 97, 61, 85, 47, 38, 78, 7, 6, 15};
-        int[] erg1 = localMaximum(ary1,2);
-        int[] erg2 = localMaximum(ary2,3);
-        System.out.println("local max array 1: " + Arrays.toString(erg1));
-        System.out.println("local max array 2: " + Arrays.toString(erg2));
+        System.out.println("local max array 1: " + Arrays.toString(localMaximum(ary1,2)));
+        System.out.println("local max array 2: " + Arrays.toString(localMaximum(ary2,3)));
         System.out.println("local max array 3: " + Arrays.toString(localMaximum(ary3,1)));
     }
 
 
-    //TODO
+    //TODO Kommentare schreiben
     static int[] localMaximum(int[] array, int radius){
 
         if(radius >= array.length / 2) return null;
