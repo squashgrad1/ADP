@@ -7,49 +7,16 @@ import org.apache.commons.lang3.time.StopWatch;
 public class DoublyLinkedList extends AbstractList {
 
     public static void main(String[] args) {
-        DoublyLinkedList list = new DoublyLinkedList();
-        list.add(0,"a");
-        System.out.println("done");
-        list.add(0,"b");
-        System.out.println("done");
-        list.add(0,"c");
-        System.out.println("done");
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        System.out.println(list.get(2).getValue());
-        list.set(1,"d");
-        System.out.println("done");
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        System.out.println(list.get(2).getValue());
-        list.remove(1);
-        System.out.println("done");
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        list.add(1,"c");
-        list.remove(0);
-        System.out.println("done");
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        list.add(0,"b");
-        list.remove(2);
-        System.out.println("done");
-        System.out.println(list.get(0).getValue());
-        System.out.println(list.get(1).getValue());
-        list.clear();
-        System.out.println("done");
-        System.out.println(list.size());
 
-        list.add(0,"c");
-        System.out.println("done");
-        list.add(0,"b");
-        System.out.println("done");
-        list.add(0,"a");
+        DoublyLinkedList list = new DoublyLinkedList();
+        for (int i = 0; i < 10; i++) {
+            list.add(i,i);
+        }
         Iterator itr = list.iterator();
         System.out.println("Iterator test");
         int i = 0;
         while (itr.hasNext()){
-            System.out.println(list.get(i).getValue());
+            System.out.println(list.get(i));
             i++;
             itr.next();
         }
@@ -63,96 +30,90 @@ public class DoublyLinkedList extends AbstractList {
             System.out.println(arrayList[j]);
         }
         System.out.println("list to array done");
+        System.out.println("array to list");
         List a = new ArrayList<>();
         a.add(1);
         a.add(2);
         a.add(3);
         DoublyLinkedList list1 = new DoublyLinkedList(a);
-        System.out.println(list1.get(0).getValue());
-        System.out.println(list1.get(1).getValue());
-        System.out.println(list1.get(2).getValue());
+        System.out.println(list1.get(0));
+        System.out.println(list1.get(1));
+        System.out.println(list1.get(2));
         System.out.println("array to list done");
         list.clear();
+
         int j = 0;
         for (j = 0; j < 100; j++) {
-            list.add(j);
+            list.add(0,j);
         }
-        System.out.println("Zeit fuer "+list.size()+ " Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j = 100; j < 200; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j = 200; j < 400; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j = 400; j < 800; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =800; j < 1600; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =1600; j < 3200; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =3200; j < 6400; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =6400; j < 12800; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =12800; j < 25600; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =25600; j < 51200; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =51200; j < 102400; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
         for (j =102400; j < 204800; j++) {
-            list.add(j);
+            list.add(0,j);
         }
         System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
-        for (j =204800; j < 409600; j++) {
-            list.add(j);
-        }
-        System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
-        for (j =409600; j < 819200; j++) {
-            list.add(j);
-        }
-        System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
-        for (j =819200; j < 819200*2; j++) {
-            list.add(j);
-        }
-        System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
-        for (j =819200*2; j < 819200*2*2; j++) {
-            list.add(j);
-        }
-        System.out.println("Startet Zeit");
-        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege ohne Iterator: " + list.doublingTest());
+        System.out.println("Zeit fuer "+list.size()+" Eintraege mit Iterator: " + list.doublingTestIterator());
     }
 
 
@@ -165,7 +126,7 @@ public class DoublyLinkedList extends AbstractList {
         lastNode = new Node(firstNode, null,"last Node");
         firstNode.changeNextNode(lastNode);
     }
-    //TODO test this
+
     DoublyLinkedList(List listToCopy){
         firstNode = new Node(null,null,"first Node");
         lastNode = new Node(firstNode, null,"last Node");
@@ -218,6 +179,10 @@ public class DoublyLinkedList extends AbstractList {
             nextNode = newNextNode;
             return oldPrevNode;
         }
+
+        public boolean hasNextNode(){
+            return nextNode != null;
+        }
     }
     /**
      * {@inheritDoc}
@@ -231,7 +196,7 @@ public class DoublyLinkedList extends AbstractList {
     @Override
     public Object remove(int index) throws IndexOutOfBoundsException{
 
-        Node nodeToRemove = get(index);
+        Node nodeToRemove = getNode(index);
         Node prevNode = nodeToRemove.getPrevNode();
         Node nextNode = nodeToRemove.getNextNode();
 
@@ -256,7 +221,7 @@ public class DoublyLinkedList extends AbstractList {
      */
     @Override
     public Object set(int index, Object element) {
-        Node nodeToReplace = get(index);
+        Node nodeToReplace = getNode(index);
         Object oldValue = nodeToReplace.getValue();
         nodeToReplace.changeValue(element);
         return oldValue;
@@ -283,7 +248,7 @@ public class DoublyLinkedList extends AbstractList {
             prevNode = lastNode.getPrevNode();
         }
         else{
-            nextNode = get(index);
+            nextNode = getNode(index);
             prevNode = nextNode.getPrevNode();
         }
         Node newNode = new Node(prevNode, nextNode, value);
@@ -309,6 +274,15 @@ public class DoublyLinkedList extends AbstractList {
         firstNode.changeNextNode(lastNode);
         lastNode.changePrevNode(firstNode);
     }
+
+    private Node getNode(int index){
+        if(size() <= index) throw new IndexOutOfBoundsException("Index ist größer gleich der Liste");
+
+        Node indexNode = firstNode.nextNode;
+        for(int i = 0; i < index;indexNode = indexNode.nextNode){i++;}
+        return indexNode;
+    }
+
     /**
      * {@inheritDoc}
      *
@@ -316,13 +290,8 @@ public class DoublyLinkedList extends AbstractList {
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     @Override
-    public Node get(int index) throws IndexOutOfBoundsException{
-        if(size() <= index) throw new IndexOutOfBoundsException("Index ist größer gleich der Liste");
-
-        Node indexNode = firstNode.nextNode;
-        for(int i = 0; i < index;indexNode = indexNode.nextNode){i++;}
-
-        return indexNode;
+    public Object get(int index) throws IndexOutOfBoundsException{
+        return getNode(index).getValue();
     }
     @Override
     /**
@@ -332,7 +301,7 @@ public class DoublyLinkedList extends AbstractList {
     public int size() {
         int i = 0;
         Node indexNode = firstNode;
-        while(indexNode.getNextNode() != null){
+        while(indexNode.hasNextNode()){
             indexNode = indexNode.getNextNode();
             i++;
         }
@@ -346,6 +315,14 @@ public class DoublyLinkedList extends AbstractList {
             indexNode = indexNode.getNextNode();
         }
         timer.stop();
-        return timer.getTime(TimeUnit.SECONDS);
+        return timer.getNanoTime();
+    }
+    private long doublingTestIterator(){
+        StopWatch timer = new StopWatch();
+        Iterator itr = iterator();
+        timer.start();
+        while(itr.hasNext()) itr.next();
+        timer.stop();
+        return timer.getTime(TimeUnit.MILLISECONDS);
     }
 }
