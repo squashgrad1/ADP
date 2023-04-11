@@ -1,8 +1,8 @@
-import java.util.AbstractList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
+import java.lang.Object;
+import org.apache.commons.lang3.time.StopWatch;
 
 public class DoublyLinkedList extends AbstractList {
 
@@ -63,6 +63,96 @@ public class DoublyLinkedList extends AbstractList {
             System.out.println(arrayList[j]);
         }
         System.out.println("list to array done");
+        List a = new ArrayList<>();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        DoublyLinkedList list1 = new DoublyLinkedList(a);
+        System.out.println(list1.get(0).getValue());
+        System.out.println(list1.get(1).getValue());
+        System.out.println(list1.get(2).getValue());
+        System.out.println("array to list done");
+        list.clear();
+        int j = 0;
+        for (j = 0; j < 100; j++) {
+            list.add(j);
+        }
+        System.out.println("Zeit fuer "+list.size()+ " Eintraege: " + list.doublingTest());
+        for (j = 100; j < 200; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j = 200; j < 400; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j = 400; j < 800; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =800; j < 1600; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =1600; j < 3200; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =3200; j < 6400; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =6400; j < 12800; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =12800; j < 25600; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =25600; j < 51200; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =51200; j < 102400; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =102400; j < 204800; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =204800; j < 409600; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =409600; j < 819200; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =819200; j < 819200*2; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
+        for (j =819200*2; j < 819200*2*2; j++) {
+            list.add(j);
+        }
+        System.out.println("Startet Zeit");
+        System.out.println("Zeit fuer "+list.size()+" Eintraege: " + list.doublingTest());
     }
 
 
@@ -77,6 +167,10 @@ public class DoublyLinkedList extends AbstractList {
     }
     //TODO test this
     DoublyLinkedList(List listToCopy){
+        firstNode = new Node(null,null,"first Node");
+        lastNode = new Node(firstNode, null,"last Node");
+        firstNode.changeNextNode(lastNode);
+
         Object[] a = listToCopy.toArray();
         for (int i = 0; i < a.length; i++) {
             add(i,a[i]);
@@ -243,5 +337,15 @@ public class DoublyLinkedList extends AbstractList {
             i++;
         }
         return i - 1;
+    }
+    private long doublingTest(){
+        Node indexNode = firstNode;
+        StopWatch timer = new StopWatch();
+        timer.start();
+        while(indexNode.getNextNode() != null){
+            indexNode = indexNode.getNextNode();
+        }
+        timer.stop();
+        return timer.getTime(TimeUnit.SECONDS);
     }
 }
