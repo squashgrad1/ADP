@@ -6,6 +6,7 @@ public class VisualAccumulator extends SimpleAccumulator{
 
     private int N=0;
     private double total=0.0;
+    double max;
 
     public VisualAccumulator(int trials, double max){
         StdDraw.setXscale(0,trials);
@@ -21,5 +22,10 @@ public class VisualAccumulator extends SimpleAccumulator{
         StdDraw.point(N,d);
         StdDraw.setPenColor(Color.RED);
         StdDraw.point(N,total/N);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Mean (%d values): %7.5f", N,total/N);
     }
 }
