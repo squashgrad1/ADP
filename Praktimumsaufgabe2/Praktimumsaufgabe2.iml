@@ -23,5 +23,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="algs41" level="project" />
+    <orderEntry type="library" name="java" level="project" />
   </component>
 </module>

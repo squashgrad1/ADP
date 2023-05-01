@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADP.iml" filepath="$PROJECT_DIR$/ADP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Praktikumsaufgabe1/Praktikumsaufgabe1.iml" filepath="$PROJECT_DIR$/Praktikumsaufgabe1/Praktikumsaufgabe1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Praktimumsaufgabe2/Praktimumsaufgabe2.iml" filepath="$PROJECT_DIR$/Praktimumsaufgabe2/Praktimumsaufgabe2.iml" />
     </modules>
   </component>
