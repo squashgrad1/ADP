@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADP.iml" filepath="$PROJECT_DIR$/ADP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wnd-ad-main/AD_2 Sortieren/AD_2 Sortieren.iml" filepath="$PROJECT_DIR$/wnd-ad-main/AD_2 Sortieren/AD_2 Sortieren.iml" />
       <module fileurl="file://$PROJECT_DIR$/Praktikumsaufgabe1/Praktikumsaufgabe1.iml" filepath="$PROJECT_DIR$/Praktikumsaufgabe1/Praktikumsaufgabe1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Praktimumsaufgabe2/Praktimumsaufgabe2.iml" filepath="$PROJECT_DIR$/Praktimumsaufgabe2/Praktimumsaufgabe2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wnd-ad-main/common/common.iml" filepath="$PROJECT_DIR$/wnd-ad-main/common/common.iml" />
     </modules>
   </component>
 </project>
