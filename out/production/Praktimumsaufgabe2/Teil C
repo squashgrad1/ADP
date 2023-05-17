@@ -1,0 +1,16 @@
+Selection-Sort
+Invariante: links von i sind alle Elemente sortiert und kleiner als das Element an Position i
+
+Insertion-Sort
+Invariante: Das Array links von i ist immer sortiert.
+
+Shell-Sort
+Invariante: Die festgelegte Schrittweiten-Folge
+
+Merge-Sort
+Invariante: Die zu mischenden Arrays sind sortiert
+Vordem Merge-Sort werden die zu mischenden Arrays einmal sortiert
+
+Quick-Sort
+Invariante: Für die Elemente links vom Pivot gilt <= Pivot und für die Elemente rechts vom Pivot gilt >= Pivot
+Vordem Quicksort alle hohen Werte nach rechts tauschen und alle niedrigen Werte nach links tauschen
