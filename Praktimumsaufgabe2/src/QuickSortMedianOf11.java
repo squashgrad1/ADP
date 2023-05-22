@@ -28,37 +28,18 @@ public class QuickSortMedianOf11 {
     }
 
     private static int partition(int[] arr, int low, int high) {
-        int left = low;
-        int[] center = low + (high - low) / 10;
-        int center = low + 2 * ((high - low) / 10);
-        int centerRight = low + 3 * ((high - low) / 10);
-        int right = high;
-
-        if (arr[left] > arr[centerLeft])
-            swap(arr, low, centerLeft);
-        if (arr[left] > arr[center])
-            swap(arr, left, center);
-        if (arr[left] > arr[centerRight])
-            swap(arr, left, centerRight);
-        if (arr[left] > arr[right])
-            swap(arr, left, right);
-
-        if (arr[centerLeft] > arr[center])
-            swap(arr, centerLeft, center);
-        if (arr[centerLeft] > arr[centerRight])
-            swap(arr, centerLeft, centerRight);
-        if (arr[centerLeft] > arr[right])
-            swap(arr, centerLeft, right);
-
-        if (arr[center] > arr[centerRight])
-            swap(arr, center, centerRight);
-        if (arr[center] > arr[right])
-            swap(arr, center, right);
-
-        if (arr[centerRight] > arr[right])
-            swap(arr, centerRight, right);
-
-        swap(arr,center,high-1);
+        int[] medians = new int[12];
+        for (int i = 0; i < medians.length - 1; i++) {
+            medians[i] = low + i * ((high - low) /10);
+        }
+        medians[medians.length -1] = high;
+        for (int j = 0; j < medians.length; j++) {
+            for (int i = j+1; i < medians.length; i++) {
+                if (arr[medians[j]] > arr[medians[i]])
+                    swap(arr, medians[j], medians[i]);
+            }
+        }
+        swap(arr,medians[medians.length/2], high-1);
         return high-1;
     }
 
@@ -83,7 +64,7 @@ public class QuickSortMedianOf11 {
     }
 
     public static void main(String[] args) {
-        int[] arr = {9, 5, 1, 8, 3, 7, 4, 6, 2,2,43,45,456,453,432,342,756,0,786,897,7896,456453,3,453,645,564,432,123,7,756,7896,90,7,789,765,56,5,433,3,3,3,45,5,76,89,76,5,57,8,9,0,0,9,786,6,5,443,3,45,566,7,889,9,8,76,5};
+        int[] arr = {9, 5, 1, 8, 3, 7, 4, 6, 2,2,43,45,456,453,432,342,756,0,786,897,7896,456453,3,453,645,564,432,123,7,756,7896,90,7,789,765,56,433,3,3,3,45,5,76,89,76,5,57,8,9,0,0,9,786,6,5,443,3,45,566,7,889,9,8,76,5};
         System.out.println("Original array: " + Arrays.toString(arr));
 
         quickSort(arr);
