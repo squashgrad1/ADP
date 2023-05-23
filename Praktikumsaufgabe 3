@@ -1,0 +1,144 @@
+3.3.1
+get(), put(), delete(), contains(), isEmpty(), size(), keys()
+
+3.3.2
+Da es keine doppelten Schlüssel in der Tabelle geben soll, muss vor jedem Einfügen geprüft werden, ob der Key schon existiert.
+Falls der Key existiert wird beim Einfügen des Schlüssels, der alte Wert überschrieben.
+
+3.3.3
+Der Schlüssel darf nicht null sein, daher wird ein Fehler ausgegeben.
+
+3.3.4
+Werte dürfen nicht null sein. Wenn ein Wert auf null gesetzt wird, wird das Schlüssel-Wert-Paar gelöscht.
+
+3.3.5
+Löschstrategien:
+    - lazy deletion: Der Schlüssel wird mit null assoziiert und später bei Bedarf entfernt.
+        Bsp: put(key,null)
+    - eager deletion: Der Schlüssel wird sofort entfernt.
+        Bsp: delete(key)
+
+
+3.4.1
+Da alle Schlüssel unterschiedlich sind gilt für eine erfolgreiche Suche N Vergleiche und bei einer erfolglosen Suche im schlimmsten Fall N Vergleiche.
+->  1+2+⋯+𝑁 = 𝑁∗(𝑁+1)/2 ~ 𝑁∗𝑁/2
+
+3.4.2
+Da im Mittel die meisten Schlüssel nicht am Ende der Symboltabelle eingefügt werden sondern in der Mitte, wodurch im Mittel N/2 Vergleiche nötig sind.
+
+
+3.5.1
+put(1)
+put(10)
+put(2)
+put(9)
+put(3)
+put(8)
+put(4)
+put(7)
+put(5)
+put(6)
+
+3.5.2
+for(i = 0; i < N/2; i++){
+    put(i+1)
+    put(N-i)
+}
+
+3.5.3
+put(1)
+put(2)
+put(3)
+put(4)
+put(5)
+put(6)
+put(7)
+put(8)
+put(9)
+put(10)
+
+3.5.4
+Keys
+1   |1|
+2   1|2|
+3   12|3|
+4   123|4|
+5   1234|5|
+6   12345|6|
+7   123456|7|
+8   1234567|8|
+9   12345678|9|
+10  123456789|10|
+
+3.5.5
+1.Verallgemeinerung -> Immer ~ N/2 Arrayzugriffe
+for(i = 0; i < N/2; i++){
+    put(i+1)
+    put(N-i)
+}
+
+2.Verallgemeinerung -> Immer N Arrayzugriffe
+for(i=1; i <= N; i++){
+    put(i)
+}
+
+3.6.1
+put(3)
+put(1)
+put(5)
+put(0)
+put(2)
+put(4)
+put(6)
+
+Nein es gibt noch andere Wege die den vollständig balancierten Baum erzeugen.
+
+3.6.2
+
+
+3.6.3
+put(0)
+put(2)
+put(1)
+put(4)
+put(3)
+put(6)
+put(5)
+
+3.6.4
+key Value
+Q   1
+U   2
+H   3
+O   4
+D   5
+R   6
+Y   7
+K   8
+N   9
+A   10
+P   11
+C   12
+V   13
+X   14
+
+           _____Q_____
+          /           \
+      ___H___          X___
+    r/       \       r/    \
+    C         N      U      Y
+   / \       / \    / \
+  A   D     K   P  R   V
+              r/
+              O
+
+a. Es wird der rechteste Schlüssel genommen, hier Y.
+b. Die Referenz von X auf Y wird gelöscht.
+c. Es werden alle Knoten links vom Key gezählt, hier 5.
+d. Es gibt keinen Knoten mit rank 6.
+e. Es werden alle Schlüssel genommen die rechts von lo und links von hi sind, hier [C,D,H,K]
+f. Es wird der linkeste Schlüssel genommen, hier A.
+g. K:
+     Die Referenz von N auf K wird gelöscht.
+   Q:
+     H wird an X angehangen, U wird an H angehangen, N wird an C angehangen und D an A. Dabei ist zu bedenken, dass die neuen Verbindungen rot sind.
