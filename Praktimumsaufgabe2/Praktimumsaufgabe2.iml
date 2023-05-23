@@ -25,5 +25,6 @@
     </orderEntry>
     <orderEntry type="library" name="algs41" level="project" />
     <orderEntry type="library" name="java" level="project" />
+    <orderEntry type="library" name="algs4" level="project" />
   </component>
 </module>

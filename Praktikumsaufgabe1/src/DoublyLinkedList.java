@@ -25,7 +25,7 @@ public class    DoublyLinkedList extends AbstractList {
         }
         System.out.println("Iterator test done");
         System.out.println("Stream test");
-        Stream.of(list).forEach(n -> System.out.println(n) );
+        Stream.of(list).forEach(System.out::println);
         System.out.println("Stream test done");
         System.out.println("list to array");
         Object[] arrayList = list.toArray();
@@ -318,7 +318,7 @@ public class    DoublyLinkedList extends AbstractList {
             indexNode = indexNode.getNextNode();
         }
         timer.stop();
-        return timer.getNanoTime();
+        return timer.getTime(TimeUnit.NANOSECONDS);
     }
     private long doublingTestIterator(){
         StopWatch timer = new StopWatch();
@@ -326,6 +326,6 @@ public class    DoublyLinkedList extends AbstractList {
         timer.start();
         while(itr.hasNext()) itr.next();
         timer.stop();
-        return timer.getTime(TimeUnit.MILLISECONDS);
+        return timer.getTime(TimeUnit.NANOSECONDS);
     }
 }

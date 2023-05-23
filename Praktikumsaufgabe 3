@@ -1,3 +1,11 @@
+3.1
+
+------------------------------------------------------------------------------------------------------------------------
+
+3.2
+
+------------------------------------------------------------------------------------------------------------------------
+
 3.3.1
 get(), put(), delete(), contains(), isEmpty(), size(), keys()
 
@@ -18,6 +26,7 @@ Löschstrategien:
     - eager deletion: Der Schlüssel wird sofort entfernt.
         Bsp: delete(key)
 
+------------------------------------------------------------------------------------------------------------------------
 
 3.4.1
 Da alle Schlüssel unterschiedlich sind gilt für eine erfolgreiche Suche N Vergleiche und bei einer erfolglosen Suche im schlimmsten Fall N Vergleiche.
@@ -26,6 +35,7 @@ Da alle Schlüssel unterschiedlich sind gilt für eine erfolgreiche Suche N Verg
 3.4.2
 Da im Mittel die meisten Schlüssel nicht am Ende der Symboltabelle eingefügt werden sondern in der Mitte, wodurch im Mittel N/2 Vergleiche nötig sind.
 
+------------------------------------------------------------------------------------------------------------------------
 
 3.5.1
 put(1)
@@ -82,6 +92,8 @@ for(i=1; i <= N; i++){
     put(i)
 }
 
+------------------------------------------------------------------------------------------------------------------------
+
 3.6.1
 put(3)
 put(1)
@@ -94,7 +106,6 @@ put(6)
 Nein es gibt noch andere Wege die den vollständig balancierten Baum erzeugen.
 
 3.6.2
-
 
 3.6.3
 put(0)

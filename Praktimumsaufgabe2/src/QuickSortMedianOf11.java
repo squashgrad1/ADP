@@ -1,4 +1,8 @@
+import org.apache.commons.lang3.time.StopWatch;
+
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
 
 public class QuickSortMedianOf11 {
 
@@ -8,7 +12,7 @@ public class QuickSortMedianOf11 {
 
     private static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
-            if (high - low > 10) {
+            //if (high - low > 10) {
                 int pivotIndex = partition(arr, low, high);
                 int i = low -1;
                 int j = high -1;
@@ -21,9 +25,9 @@ public class QuickSortMedianOf11 {
                 swap(arr,i,pivotIndex);
                 quickSort(arr, low, i - 1);
                 quickSort(arr, i + 1, high);
-            } else {
-                insertionSort(arr, low, high);
-            }
+           // } else {
+                //insertionSort(arr, low, high);
+            //}
         }
     }
 
@@ -63,12 +67,30 @@ public class QuickSortMedianOf11 {
         arr[j] = temp;
     }
 
-    public static void main(String[] args) {
-        int[] arr = {9, 5, 1, 8, 3, 7, 4, 6, 2,2,43,45,456,453,432,342,756,0,786,897,7896,456453,3,453,645,564,432,123,7,756,7896,90,7,789,765,56,433,3,3,3,45,5,76,89,76,5,57,8,9,0,0,9,786,6,5,443,3,45,566,7,889,9,8,76,5};
-        System.out.println("Original array: " + Arrays.toString(arr));
-
+    private  static long doublingTestQuickSort(int[] arr) {
+        StopWatch timer = new StopWatch();
+        timer.start();
         quickSort(arr);
+        timer.stop();
+        return timer.getTime(TimeUnit.MILLISECONDS);
+    }
 
-        System.out.println("Sorted array: " + Arrays.toString(arr));
+    public static void main(String[] args) {
+        int j = 100;
+        int[] arr = new int[j];
+        for (j = 0; j < arr.length; j++) {
+            arr[j]=(int) (Math.random() * 100);
+        }
+        System.out.println("Startet Zeit fuer "+arr.length);
+        System.out.println("Zeit fuer "+arr.length+" Elemente zu sortieren: " + doublingTestQuickSort(arr));
+        while (true) {
+            j = j * 2;
+            arr = new int[j];
+            for (j = 0; j < arr.length; j++) {
+                arr[j] = (int) (Math.random() * 100);
+            }
+            System.out.println("Startet Zeit fuer " + arr.length);
+            System.out.println("Zeit fuer " + arr.length + " Elemente zu sortieren: " + doublingTestQuickSort(arr));
+        }
     }
 }

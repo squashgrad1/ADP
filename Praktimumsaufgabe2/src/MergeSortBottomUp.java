@@ -1,7 +1,5 @@
 import java.util.Arrays;
-
-class Main
-{
+public class MergeSortBottomUp {
     public static void merge(int[] arr, int lo, int mid, int hi, int[] aux)
     {
         int k = lo;
@@ -49,9 +47,12 @@ class Main
 
     public static void main(String[] args)
     {
-        int[] A = { 5, 7, -9, 3, -4, 2, 8 };
-        System.out.println("Original array: " + Arrays.toString(A));
-        mergesort(A);
-        System.out.println("Modified array: " + Arrays.toString(A));
+        int[] arr = new int[50];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 200) - 100;
+        }
+        System.out.println("Original array: " + Arrays.toString(arr));
+        mergesort(arr);
+        System.out.println("Modified array: " + Arrays.toString(arr));
     }
 }

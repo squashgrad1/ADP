@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BubbleSort {
     public void sort(int[] arrayToSort) {
         if (arrayToSort.length == 0) {
@@ -17,9 +19,20 @@ public class BubbleSort {
                 }
             }
         }
-        for (int i = 0; i < arrayToSort.length; i++) {
-            System.out.println(arrayToSort[i]);
-        }
         return;
     }
-}
+
+    public static void main(String[] args) {
+        int[] arr = new int[50];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=(int) (Math.random() * 100);
+        }
+        BubbleSort b = new BubbleSort();
+        System.out.println("Original array: " + Arrays.toString(arr));
+
+        b.sort(arr);
+
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+    }
+
