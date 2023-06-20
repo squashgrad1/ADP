@@ -10,25 +10,25 @@ public class QuickSortMedianOf5 {
     }
 
     private static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            //if (high - low > 10) {
+            if (high - low > 1) {
                 int pivotIndex = partition(arr, low, high);
-                int i = low -1;
-                int j = high -1;
-                while(true){
-                    while(arr[++i] < arr[pivotIndex]);
-                    while(arr[--j] > arr[pivotIndex]);
-                    if(i >= j) break;
-                    else swap(arr,i,j);
-                }
-                swap(arr,i,pivotIndex);
-                quickSort(arr, low, i - 1);
-                quickSort(arr, i + 1, high);
-            //} else {
+            int i = low ;
+            int j = high -1;
+            while(true){
+                while(arr[++i] < arr[pivotIndex]);
+                while(arr[--j] > arr[pivotIndex] && j>0);
+                if(i >= j) break;
+                else swap(arr,i,j);
+            }
+            swap(arr,i,high-1);
+            quickSort(arr,low,i);
+            quickSort(arr,i,high);
+            } //else {
                // insertionSort(arr, low, high);
            // }
-        }
+
     }
+
 
     private static int partition(int[] arr, int low, int high) {
         int left = low;
@@ -94,6 +94,7 @@ public class QuickSortMedianOf5 {
     }
 
     public static void main(String[] args) {
+        /**
         int j = 100;
         int[] arr = new int[j];
         for (j = 0; j < arr.length; j++) {
@@ -110,6 +111,7 @@ public class QuickSortMedianOf5 {
             System.out.println("Startet Zeit fuer " + arr.length);
             System.out.println("Zeit fuer " + arr.length + " Elemente zu sortieren: " + doublingTestQuickSort(arr));
         }
+         */
     }
 }
 

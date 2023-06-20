@@ -1,5 +1,6 @@
 import org.apache.commons.lang3.time.StopWatch;
 
+import edu.princeton.cs.algs4.*;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
@@ -8,9 +9,9 @@ class QuickSort3Particion {
 
     public static void quickSort(int[] intArray, int left, int right ){
         int i,j,pivot;
-        //if(right-left>10){
+        if(right-left>10){
             pivot = medianOf3(intArray,left,right);
-            i = left - 1;
+            i = left ;
             j = right -1;
             while(true){
                 while(intArray[++i] < pivot);
@@ -19,11 +20,11 @@ class QuickSort3Particion {
                 else swap(intArray,i,j);
             }
             swap(intArray,i,right-1);
-            quickSort(intArray,left,i-1);
-            quickSort(intArray,i+1,right);
+            quickSort(intArray,left,i);
+            quickSort(intArray,i,right);
         }
-       // else insertionSort(intArray,left,right);
-    //}
+        else insertionSort(intArray,left,right);
+    }
 
     public static int medianOf3(int[] intArray, int left, int right) {
         int center = (left + right) / 2;
@@ -66,6 +67,7 @@ class QuickSort3Particion {
         return timer.getTime(TimeUnit.MILLISECONDS);
     }
     public static void main(String[] args) {
+        /**
         int j = 100;
         int[] arr = new int[j];
         for (j = 0; j < arr.length; j++) {
@@ -82,5 +84,6 @@ class QuickSort3Particion {
             System.out.println("Startet Zeit fuer " + arr.length);
             System.out.println("Zeit fuer " + arr.length + " Elemente zu sortieren: " + doublingTestQuickSort(arr));
         }
+*/
     }
 }
