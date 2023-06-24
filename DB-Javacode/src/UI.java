@@ -1,12 +1,13 @@
-import java.sql.Time;
 import java.util.Scanner;
-import java.time.*;
 
 public class UI {
-    private static final String MENU =  "[0]Schiff einfuegen\n" +
-                                        "[1]Schiffe nach max. 3 Attributen filtern\n" +
-                                        "[2]Reisen eines Schiffes Ausgeben\n" +
-                                        "[3]Programm schliessen\n";
+    private static final String MENU =
+            """
+            [0]Schiff einfuegen
+            [1]Schiffe nach max. 3 Attributen filtern
+            [2]Reisen eines Schiffes Ausgeben
+            [3]Programm schliessen
+            """;
     private static Scanner scanner;
     private static boolean scannerRunning;
 
