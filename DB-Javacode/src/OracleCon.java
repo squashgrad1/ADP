@@ -2,10 +2,15 @@ import java.sql.*;
 
 
 public class OracleCon {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            System.exit(-1);
+        }
 
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        String url = "jdbc:oracle:thin:@localhost:1521:oracle.informatik.haw-hamburg.de";
+        String url = "jdbc:oracle:thin:@localhost:1521/inf.informatik.haw-hamburg.de";
         String user = "db_2652458";
         String pass = "kYed0lVB_jrmlNWjsNhr";
 

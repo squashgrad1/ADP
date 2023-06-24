@@ -2,27 +2,24 @@ import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
-
-
-
-/**
         UI.init();
         while(true){
             UI.printMenu();
             switch(UI.waitForInput()){
-                case 1:{
+                case 0:{
+                    Schiff schiff = UI.getSchiffFromUser();
                     System.out.println("Schiff eingefuegt");
                     break;
                 }
-                case 2:{
+                case 1:{
                     System.out.println("Schiffe gefiltert");
                     break;
                 }
-                case 3:{
+                case 2:{
                     System.out.println("Reise ausgegeben");
                     break;
                 }
-                case 4:{
+                case 3:{
                     UI.closeUI();
                     System.exit(0);
                 }
@@ -32,6 +29,5 @@ public class Main {
                 }
             }
         }
- */
     }
 }
