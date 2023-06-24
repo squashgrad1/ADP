@@ -7,7 +7,7 @@ public class Main {
             UI.printMenu();
             switch(UI.waitForInput()){
                 case 0:{
-                    Schiff schiff = UI.getSchiffFromUser();
+                    Schiff schiff = UI.getNewSchiffFromUser();
                     System.out.println("Schiff eingefuegt");
                     break;
                 }
@@ -16,7 +16,8 @@ public class Main {
                     break;
                 }
                 case 2:{
-                    System.out.println("Reise ausgegeben");
+                    String imoNr = UI.getSchiffForReise();
+                    System.out.println("Reisen ausgegeben");
                     break;
                 }
                 case 3:{

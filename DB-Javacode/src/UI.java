@@ -5,7 +5,7 @@ import java.time.*;
 public class UI {
     private static final String MENU =  "[0]Schiff einfuegen\n" +
                                         "[1]Schiffe nach max. 3 Attributen filtern\n" +
-                                        "[2]Reise eines Schiffes Ausgeben\n" +
+                                        "[2]Reisen eines Schiffes Ausgeben\n" +
                                         "[3]Programm schliessen\n";
     private static Scanner scanner;
     private static boolean scannerRunning;
@@ -33,7 +33,7 @@ public class UI {
         }
     }
 
-    static public Schiff getSchiffFromUser(){
+    static public Schiff getNewSchiffFromUser(){
         Schiff schiff = new Schiff();
 
         System.out.print("Imo-Nr: ");
@@ -68,4 +68,8 @@ public class UI {
         return schiff;
     }
 
+    static public String getSchiffForReise(){
+        System.out.print("Imo-Nr: ");
+        return scanner.nextLine();
+    }
 }
