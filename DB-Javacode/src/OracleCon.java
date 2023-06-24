@@ -5,7 +5,7 @@ public class OracleCon {
     public static void main(String[] args) throws Exception{
 
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        String url = "jdbc:oracle:thin:@oracle.informatik.hawhamburg.de:1521:ords:db_2652458:_sdw";
+        String url = "jdbc:oracle:thin:@localhost:1521:oracle.informatik.haw-hamburg.de";
         String user = "db_2652458";
         String pass = "kYed0lVB_jrmlNWjsNhr";
 
