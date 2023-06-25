@@ -37,15 +37,15 @@ public class UIL {
     static public void getNewSchiffFromUser(){
 
         String IMO_NR;
-        int TEU;
-        int Baujahr;
-        int Brz;
-        int Nrz;
+        Integer TEU;
+        Integer Baujahr;
+        Integer Brz;
+        Integer Nrz;
         String Hafen;
 
-        System.out.print("Imo-Nr: ");
-        if (scanner.nextLine().length() > 10 || scanner.nextLine().length() < 1){
-            System.out.print("ungültige Eingabe");
+        System.out.print("Imo-Nr: \n");
+        if (scanner.nextLine().length() != 10){
+            System.out.print("ungültige Eingabe\n");
             return;
         }
         else{
@@ -61,7 +61,8 @@ public class UIL {
             Baujahr = Integer.parseInt(scanner.nextLine());
         }
         else{
-            Baujahr = Integer.parseInt(null);
+            Baujahr = null;
+            System.out.print("Baujahr wird auf null gesetzt\n");
         }
 
         System.out.println("Ist die Bruttoraumzahl bekannt?[y/n]");
@@ -70,7 +71,8 @@ public class UIL {
             Brz = Integer.parseInt(scanner.nextLine());
         }
         else{
-            Brz = Integer.parseInt(null);
+            Brz = null;
+            System.out.print("Bruttoraumzahl wird auf null gesetzt\n");
         }
 
         System.out.println("Ist die Nettoraumzahl bekannt?[y/n]");
@@ -79,14 +81,15 @@ public class UIL {
             Nrz = Integer.parseInt(scanner.nextLine());;
         }
         else{
-            Nrz = Integer.parseInt(null);
+            Nrz = null;
+            System.out.print("Nettoraumzahl wird auf null gesetzt\n");
         }
 
         System.out.println("Ist der Heimathafen bekannt?[y/n]");
         if(scanner.nextLine().equals("y")) {
-            System.out.print("Locode des Heimathafens: ");
-            if (scanner.nextLine().length() > 6 || scanner.nextLine().length() < 1){
-                System.out.print("ungültige Eingabe");
+            System.out.print("Heimathafen: ");
+            if (scanner.nextLine().length() > 255 || scanner.nextLine().length() < 1){
+                System.out.print("ungültige Eingabe\n");
                 return;
             }
             else{
@@ -95,14 +98,65 @@ public class UIL {
         }
         else{
             Hafen = null;
+            System.out.print("Hafen wird auf null gesetzt\n");
         }
 
-        new OracleConL("INSERT INTO SCHIFF (IMO_NR, TEU, BAUJAHR, BRUTTORAUMZAHL, NETTORAUMZAHL, HAFEN)\n" +
-                "VALUES ("+IMO_NR+","+TEU+","+Baujahr+","+Brz+","+Nrz+","+Hafen+"));\n");
+        String command = ("INSERT INTO SCHIFF (IMO_NR, TEU, BAUJAHR, BRUTTORAUMZAHL, NETTORAUMZAHL, HAFEN)" +
+                "VALUES ('"+IMO_NR+"',"+TEU+","+Baujahr+","+Brz+","+Nrz+", (SELECT LOCODE FROM HAFEN WHERE HAFEN_NAME = '"+Hafen+"'))");
+        //System.out.println(command);
+        new OracleConL2(command);
+        //new OracleConL2("SELECT * FROM SCHIFF");
+        System.out.println("Schiff eingefuegt");
+        return;
     }
 
-    static public String getSchiffForReise(){
-        System.out.print("Imo-Nr: ");
-        return scanner.nextLine();
+    static public void getAttributesFromUser() {
+        String attribute;
+        String value;
+        String command = "SELECT * FROM SCHIFF";
+
+        System.out.print("1. Attribut: ");
+        attribute = scanner.nextLine();
+        System.out.print("1. Wert: ");
+        value = scanner.nextLine();
+        command = command+" WHERE "+attribute+ " = '" +value+ "'";
+
+        System.out.println("Soll mit einem zweiten Attribut gefiltert werden?[y/n]");
+        if (scanner.nextLine().equals("y")) {
+            System.out.print("2. Attribut: ");
+            attribute = scanner.nextLine();
+            System.out.print("2. Wert: ");
+            value = scanner.nextLine();
+            command = command+" AND "+attribute+ " = '" +value+ "'";
+
+            System.out.println("Soll mit einem drittem Attribut gefiltert werden?[y/n]");
+            if (scanner.nextLine().equals("y")) {
+                System.out.print("3. Attribut: ");
+                attribute = scanner.nextLine();
+                System.out.print("3. Wert: ");
+                value = scanner.nextLine();
+                command = command+" AND "+attribute+ " = '" +value+ "'";
+            }
+        }
+
+        System.out.println(command + "\n");
+        System.out.println("Ausgabe:");
+        new OracleConL2(command);
+        System.out.println("\n");
+        //new OracleConL2("SELECT * FROM SCHIFF");
+        return;
     }
-}
+
+
+
+    static public void getSchiffForReise(){
+            String command = "SELECT * FROM REISE";
+            System.out.print("Imo-Nr: ");
+             command = command+ " WHERE SCHIFF = '" +scanner.nextLine()+ "'";
+            System.out.println(command + "\n");
+            System.out.println("Ausgabe:");
+            new OracleConL2(command);
+             System.out.println("\n");
+            return;
+        }
+    }
