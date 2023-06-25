@@ -1,15 +1,16 @@
 import java.sql.*;
 
 public class OracleConL {
-    private final String url = "jdbc:oracle:thin:@localhost:1521/inf.informatik.haw-hamburg.de";
+    private final String url = "jdbc:oracle:thin:@oracle.informatik.haw-hamburg.de:1521/inf.informatik.haw-hamburg.de";
     private String user = "db_2652458";
     private String password = "kYed0lVB_jrmlNWjsNhr";
     private String table = "Schiff";
     private String command;
 
 
-    public OracleConL(String command) {
-        this.setCommand(command);
+    public OracleConL() {
+        //this.setCommand(command);
+        this.setCommand("SELECT * FROM SCHIFF");
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
             Connection con = DriverManager.getConnection(this.getUrl(), this.getUser(), this.getPassword());
@@ -17,7 +18,7 @@ public class OracleConL {
             stm.execute("USE"+" "+this.getTable());
 
             String rsString = "";
-            ResultSet rs = stm.executeQuery(this.getCommand());
+            ResultSet rs = stm.executeQuery("SELECT * FROM SCHIFF");
             int i = 0;
             while (rs.next()) {
                 rsString = rsString+"/n"+rs.getString(i);
