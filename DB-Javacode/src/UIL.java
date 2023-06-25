@@ -44,12 +44,10 @@ public class UIL {
         String Hafen;
 
         System.out.print("Imo-Nr: \n");
-        if (scanner.nextLine().length() != 10){
+        IMO_NR = scanner.nextLine();
+        if (IMO_NR.length() != 10){
             System.out.print("ungültige Eingabe\n");
             return;
-        }
-        else{
-            IMO_NR = scanner.nextLine();
         }
 
         System.out.print("Teu: ");
