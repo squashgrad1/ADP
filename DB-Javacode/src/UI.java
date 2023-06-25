@@ -69,6 +69,27 @@ public class UI {
         return schiff;
     }
 
+    static public void getAttributesFromUser(){
+        String attribute1;
+        String attribute2;
+        String attribute3;
+
+        System.out.print("1. Attribut: ");
+        attribute1 = scanner.nextLine();
+
+        System.out.println("Soll mit einem zweiten Attribut gefiltert werden?[y/n]");
+        if(scanner.nextLine().equals("y")) {
+            System.out.print("2. Attribut: ");
+            attribute2 = scanner.nextLine();
+
+            System.out.println("Soll mit einem drittem Attribut gefiltert werden?[y/n]");
+            if(scanner.nextLine().equals("y")) {
+                System.out.print("3. Attribut: ");
+                attribute3 = scanner.nextLine();
+            }
+        }
+    }
+
     static public String getSchiffForReise(){
         System.out.print("Imo-Nr: ");
         return scanner.nextLine();

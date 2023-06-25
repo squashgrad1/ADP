@@ -12,6 +12,7 @@ public class Main {
                     break;
                 }
                 case 1:{
+                    UI.getAttributesFromUser();
                     System.out.println("Schiffe gefiltert");
                     break;
                 }
