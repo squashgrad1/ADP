@@ -1,6 +1,9 @@
 import java.util.Arrays;
 
 public class BubbleSort {
+    //  N
+    //N+∑N-k
+    // k=0
     public void sort(int[] arrayToSort) {
         if (arrayToSort.length == 0) {
             System.out.println("Das Eingabearray ist leer");

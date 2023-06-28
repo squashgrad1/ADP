@@ -91,3 +91,14 @@ public class MergeSort {
     }
 }
 
+/**Rechnung:                      k
+ * Für meinen Mergesort gilt 3k * ∑ N/3^i Arrayzugriffe.
+ *                               i=0
+ *                                k
+ * Für meinen Mergesort gilt 3k * ∑ 3*N/3^i Vergleiche.
+ *                               i=0
+ *                                                k                               k
+ * Da für N=3k anzunehmen ist, hat Mergesort 3k * ∑ 3k/3^i Arrayzugriffe und 9k * ∑ 3k/3^i Vergleiche.
+ *                                               i=0                             i=0
+ */
+
