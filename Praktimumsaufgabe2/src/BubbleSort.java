@@ -1,4 +1,7 @@
+import org.apache.commons.lang3.time.StopWatch;
+
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class BubbleSort {
     //  N
@@ -24,18 +27,44 @@ public class BubbleSort {
         }
         return;
     }
+    private  static long doublingTestQuickSort(int[] arr){
+        StopWatch timer = new StopWatch();
+        BubbleSort bubbleSort = new BubbleSort();
+        timer.start();
+        bubbleSort.sort(arr);
+        timer.stop();
+        return timer.getTime(TimeUnit.MILLISECONDS);
+    }
 
     public static void main(String[] args) {
-        int[] arr = new int[50];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i]=(int) (Math.random() * 100);
+        int j = 100;
+        int[] arr = new int[j];
+        for (j = 0; j < arr.length; j++) {
+            arr[j]=(int) (Math.random() * 100);
         }
-        BubbleSort b = new BubbleSort();
-        System.out.println("Original array: " + Arrays.toString(arr));
-
-        b.sort(arr);
-
-        System.out.println("Sorted array: " + Arrays.toString(arr));
+        System.out.println("Startet Zeit fuer "+arr.length);
+        System.out.println("Zeit fuer "+arr.length+" Elemente zu sortieren: " + doublingTestQuickSort(arr));
+        while (true) {
+            j = j * 2;
+            arr = new int[j];
+            for (j = 0; j < arr.length; j++) {
+                arr[j] = (int) (Math.random() * 100);
+            }
+            System.out.println("Startet Zeit fuer " + arr.length);
+            System.out.println("Zeit fuer " + arr.length + " Elemente zu sortieren: " + doublingTestQuickSort(arr));
+        }
     }
+    /**
+     int[] arr = new int[50];
+     for (int i = 0; i < arr.length; i++) {
+     arr[i]=(int) (Math.random() * 100);
+     }
+     BubbleSort b = new BubbleSort();
+     System.out.println("Original array: " + Arrays.toString(arr));
+
+     b.sort(arr);
+
+     System.out.println("Sorted array: " + Arrays.toString(arr));
+     */
     }
 

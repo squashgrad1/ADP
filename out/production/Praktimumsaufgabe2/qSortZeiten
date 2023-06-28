@@ -77,3 +77,32 @@ Zeit fuer 419430400 Elemente zu sortieren: 31235
 Zeit fuer 838860800 Elemente zu sortieren: 62545
 
 Medianof3 mit Insertionsort Verdoppelungstest(Zeit in Millisekunden):
+Zeit fuer 100 Elemente zu sortieren: 0
+Zeit fuer 200 Elemente zu sortieren: 0
+Zeit fuer 400 Elemente zu sortieren: 0
+Zeit fuer 800 Elemente zu sortieren: 0
+Zeit fuer 1600 Elemente zu sortieren: 0
+Zeit fuer 3200 Elemente zu sortieren: 0
+Zeit fuer 6400 Elemente zu sortieren: 0
+Zeit fuer 12800 Elemente zu sortieren: 0
+Zeit fuer 25600 Elemente zu sortieren: 1
+Zeit fuer 51200 Elemente zu sortieren: 2
+Zeit fuer 102400 Elemente zu sortieren: 6
+Zeit fuer 204800 Elemente zu sortieren: 7
+Zeit fuer 409600 Elemente zu sortieren: 15
+Zeit fuer 819200 Elemente zu sortieren: 31
+Zeit fuer 1638400 Elemente zu sortieren: 64
+Zeit fuer 3276800 Elemente zu sortieren: 129
+Zeit fuer 6553600 Elemente zu sortieren: 267
+Zeit fuer 13107200 Elemente zu sortieren: 538
+Zeit fuer 26214400 Elemente zu sortieren: 1128
+Zeit fuer 52428800 Elemente zu sortieren: 2301
+Zeit fuer 104857600 Elemente zu sortieren: 4640
+Zeit fuer 209715200 Elemente zu sortieren: 9450
+Zeit fuer 419430400 Elemente zu sortieren: 19661
+Zeit fuer 838860800 Elemente zu sortieren: 39320
+
+qSort mit Insertionsort ist am schnellsten
+qSort mit Median of 3 ist am 2. schnellsten -> ist deutlich langsamer als qSort mit Insertionsort, wahrscheinlich liegt es daran das viele subarrays <10 bearbeitet werden müssen.
+qSort mit Median of 5 ist am 3. schnellsten -> ist nur minimal langsamer als qSort mit Median of 3, wahrscheinlich liegt es daran das die Bestimmung des Medians längert dauert
+qSort mit Median of 11 ist am 4. schnellsten -> ist sehr viel langsamer als qSort mit Median of 5, wahrscheinlich liegt es daran das die Bestimmung des Medians längert dauert
