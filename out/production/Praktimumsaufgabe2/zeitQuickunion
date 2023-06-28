@@ -1,1 +1,9 @@
-tinyUF:
+PathCompression:
+tinyUF: 9700 ns
+mediumUF: 254300 ns
+largeUF: 11398301 ns
+
+weigthed QuickUnion:
+tinyUF: 10200
+mediumUF: 327901
+largeUF:

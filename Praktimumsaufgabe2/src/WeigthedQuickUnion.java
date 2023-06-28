@@ -1,44 +1,39 @@
+import org.apache.commons.lang3.time.StopWatch;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang3.time.StopWatch;
+public class WeigthedQuickUnion extends UFBase{
+    private int[] sz; // Groeße der Bauume
 
-public class PathCompressionQuickUnion extends UFBase{
-
-    public PathCompressionQuickUnion(int count) {
+    public WeigthedQuickUnion(int count) {
         super(count);
-    }
-
-    @Override
-    public int find(int p) {
-        if(p == id[p]) return p;
-        int root = find(id[p]);
-        id[p] = root;
-        return root;
+        sz = new int[count];
+        for (int i=0; i < count; i++){
+            sz[i]=1;
+        }
     }
 
     @Override
     public void union(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
-        if (pRoot != qRoot) {
+        if (pRoot==qRoot) return;
+        if (sz[pRoot] < sz[qRoot]) {
             id[pRoot] = qRoot;
-            count--;
-        }
+            sz[qRoot] += sz[pRoot];}
+        else {id[qRoot] = pRoot; sz[pRoot]+=sz[qRoot];}
+        count--;
     }
 
-    public void unionEverything(){
-        int j = 0;
-        for (int i = 1; i < id.length; i++) {
-            union(i,j);
-            j++;
-        }
+    @Override
+    public int find(int p) {
+        return 0;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File tinyUFFile = new File("C:\\Users\\Thomas\\Desktop\\ADP\\Praktimumsaufgabe2\\src\\largeUF.txt");
+        File tinyUFFile = new File("C:\\Users\\Thomas\\Desktop\\ADP\\Praktimumsaufgabe2\\src\\mediumUF.txt");
         StopWatch timer = new StopWatch();
         Scanner scanner = new Scanner(tinyUFFile);
         int [] tinyUF = new int [4000003];

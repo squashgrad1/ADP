@@ -1,1 +1,11 @@
-tinyUF:
+PathCompression:
+tinyUF: 9700 ns
+mediumUF: 254300 ns
+largeUF: 11398301 ns
+
+weigthed QuickUnion:
+tinyUF: 10200 ns
+mediumUF: 327901 ns
+largeUF: 13683199 ns
+
+UF mit PathCompression ist schneller als weigthed Quickunion
